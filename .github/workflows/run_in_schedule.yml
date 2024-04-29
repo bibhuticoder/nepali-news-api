@@ -20,12 +20,16 @@ jobs:
       - run: npm install
       - name: Run script
         run: npm start
-      - name: Add & Commit files
+      - name: Setup Git Config
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add __daily_news/*
-          git commit -m "Scrapes news for today"
+      - name: Clear existing files and add new content
+        run: |
+          git rm -r --cached .  # Remove all files from the index (staging area)
+          git clean -fdx  # Remove all untracked files and directories
+          git add ./__daily_news/*  # Add only the __daily_news folder
+          git commit -m "Update __daily_news folder" || echo "No changes to commit"
       - name: Push changes to another repository
         uses: ad-m/github-push-action@master
         with:
