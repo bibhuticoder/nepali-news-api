@@ -24,15 +24,13 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-      - name: Remove all except __daily_news folder
+      - name: Remove all files except __daily_news
         run: |
-          shopt -s extglob
-          git rm -r --cached !(.__daily_news)  # Remove all files except __daily_news from the index
-          git clean -fdx --exclude=__daily_news/  # Clean untracked files except __daily_news
-      - name: Add __daily_news folder and commit changes
+          find . -maxdepth 1 ! -name '__daily_news' ! -name '.git' -exec rm -rf {} +
+      - name: Commit changes if any
         run: |
-          git add ./__daily_news/*
-          git commit -m "Update __daily_news folder" || echo "No changes to commit"
+          git add .
+          git commit -m "Update repository with __daily_news content" || echo "No changes to commit"
       - name: Push changes to another repository
         uses: ad-m/github-push-action@master
         with:
