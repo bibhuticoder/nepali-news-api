@@ -1,4 +1,4 @@
-## News Sources
+# Nepali News API
 
 - ok: Online Khabar
 - nn: Nepal News
