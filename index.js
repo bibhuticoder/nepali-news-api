@@ -4,11 +4,11 @@ const kpScraper = require("./scrapers/kp.scraper");
 
 (async () => {
     // console.log("====================OK=====================")
-    await okScraper.scrape()
+    // await okScraper.scrape()
 
     // console.log("====================NN=====================")
-    await nnScraper.scrape()
+    // await nnScraper.scrape()
 
     // console.log("====================KP=====================")
-    await kpScraper.scrape()
+    // await kpScraper.scrape()
 })()
