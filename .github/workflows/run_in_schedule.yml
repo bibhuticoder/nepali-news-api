@@ -26,7 +26,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
       - name: Remove all files except __daily_news
         run: |
-          find . -mindepth 1 -maxdepth 1 ! -name '__daily_news' ! -name '.git' ! -name 'README.md' -exec rm -rf {} +
+          find . -mindepth 1 -maxdepth 1 ! -name '__daily_news' ! -name '.git' ! -name 'Readme.md' -exec rm -rf {} +
       - name: Commit changes if any
         run: |
           git add .
