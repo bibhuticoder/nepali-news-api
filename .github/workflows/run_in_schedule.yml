@@ -1,0 +1,30 @@
+name: Runs News scrapper
+
+on:
+  push:
+  schedule:
+    - cron: "20 04,09,12 * * *" # (UTC) 4:20 AM & 9:20 AM -> (NEP) 10:00 AM & 03:05 PM
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - run: npm install
+      - name: Run script
+        run: npm start
+      - name: Add & Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add __daily_news/*
+          git commit -m "Scrapes news for today"
+      - name: Push changes to another repository
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository: bibhuticoder/nepali-news-api
+          branch: master

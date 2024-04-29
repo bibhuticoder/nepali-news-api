@@ -1,0 +1,17 @@
+{
+  "name": "news_scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.8.0",
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12",
+    "moment": "^2.30.1"
+  }
+}
