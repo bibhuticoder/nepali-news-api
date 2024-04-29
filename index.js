@@ -12,6 +12,6 @@ const fs = require("fs");
     // console.log("====================KP=====================")
     // await kpScraper.scrape()
 
-    fs.writeFileSync("./__daily_news/test.txt", "test 11");
+    fs.writeFileSync("./__daily_news/test.txt", "test 12");
     console.log("File added");
 })()

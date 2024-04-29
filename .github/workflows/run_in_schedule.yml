@@ -28,7 +28,7 @@ jobs:
         run: |
           git rm -r --cached .  # Remove all files from the index (staging area)
           git clean -fdx  # Remove all untracked files and directories
-          git add ./__daily_news/*  # Add only the __daily_news folder
+          git add __daily_news/*  # Add only the __daily_news folder
           git commit -m "Update __daily_news folder" || echo "No changes to commit"
       - name: Push changes to another repository
         uses: ad-m/github-push-action@master
